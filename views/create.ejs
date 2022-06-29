@@ -1,0 +1,85 @@
+<%- include("./partials/header.ejs")%>
+<%- include("./partials/navbar.ejs")%>
+    <!-- <div style = "margin-top: 10%;"> -->
+
+        <div class="form-title" >Create New Blog : </div>
+        <div class="container form1">
+    <form action="/create" method="post">
+                <div class="row">
+                  <div class="mb-3 col-md-6">
+                    <label for="name" class="form-label">Author Name : </label>
+                    <input
+                      id="name"
+                      class="form-control"
+                      type="text"
+                      name="author"
+                      placeholder="Enter your name"
+                    />
+                  </div>
+    
+                  <div class="mb-3 col-md-6">
+                    <label for="title" class="form-label">Title : </label>
+                    <input id="title" class="form-control" type="text"
+                    name="title"
+                    placeholder="Enter your Title" />
+                  </div>
+                </div>
+    
+                <div class="mb-3 col-md-12">
+                  <label for="description" class="form-label">Description :</label>
+                  <textarea
+                    id="description"
+                    class="form-control"
+                    type="text"
+                    name="description"
+                    placeholder="Enter your blog description"
+                  ></textarea>
+                </div>
+                <div class="mb-3 col-md-12">
+                    <label for="image" class="form-label">Image :</label>
+                    <input
+                      id="image"
+                      class="form-control"
+                      type="url"
+                      name="image"
+                      placeholder="Enter Image Link"
+                    />
+                  </div>
+                
+                  <div class="mb-3 col-md-12">
+                    <label for="date" class="form-label">Date Created :</label>
+                    <input
+                      id="date"
+                      class="form-control"
+                      type="date"
+                      name="date"
+                    />
+                  </div>
+                  <div class="mb-3 col-md-6"style="margin-top:30px;">
+                    <label for="category" class="form-label">Category :</label>
+                    <select id="category" name="category">
+                      <option value="Category">Select a category</option>
+                      <option value="Literature">Literature</option>
+                      <option value="Food">Food</option>
+                        <option value="Fashion">Fashion</option>
+                        <option value="Photograpgy">Photograpgy</option>
+                        <option value="LifeStyle">LifeStyle</option>
+                        <option value="Travel blogs">Travel blogs</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Cars">Cars</option>
+                        <option value="Future">Future</option>
+                        <option value="Other">Other</option>
+                      </select>
+                  </div>
+                      <div style="font-weight:500 ; display:flex; justify-content: center; margin-top:10px;">    
+                  <button class="btn btn-warning col-md-8 " >Create Blog</button>
+                </div>  
+                </div>
+  </form>
+</div> 
+      <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <%- include("./partials/footer.ejs")%>

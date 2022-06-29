@@ -1,0 +1,41 @@
+
+
+<%- include("./partials/header.ejs")%>
+<%- include("./partials/navbar.ejs")%>
+<div class="random1"></div>
+
+<a href="/home" class="button-blog-3" >Back</a>
+    <section class="container">
+        <div class="row">
+        <div class="col-lg-12 blog">
+        <div class="title"><%= users.title  %></div>
+
+        <div class="row">
+        <div class="box">
+            <img src="<%= users.image  %>" class="col-sm-12 col-md-12 col-lg-6 img">
+            <div class=" col-sm-12 col-md-12 col-lg-6 description"><%= users.description  %>
+                <div class="buto">
+                    <a href="/update?id=<%= users._id %>"class="button-blog">Update  </a>
+                    <a href="/delete/<%= users._id %>"class="button-blog">Delete </a>
+                    </div>
+        </div>
+
+    </div>
+
+</div>
+    <div class="row">
+        <div class="buto-2"></div>
+    <a href="" class=" col-7 col-lg-4 button-blog2">Aurthor Name :  <%= users.author  %></a>
+     <a href=""class="col-7 col-lg-4  button-blog2">Category :  <%= users.category  %> </a>
+     <a href=""class="col-7 col-lg-3  button-blog2">Date Added : <%= users.date  %> </a></div>
+ 
+    </div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<%- include("./partials/footer.ejs")%>

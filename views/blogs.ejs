@@ -1,0 +1,41 @@
+
+
+<%- include("./partials/header.ejs")%>
+<%- include("./partials/navbar.ejs")%>
+<div class="random"> </div>
+<% for(var i=0;i<users.length;i++){%>
+    <section class="container">
+        <div class="row">
+        <div class="col-lg-12 blog">
+        <div class="title"><%= users[i].title  %></div>
+
+        <div class="row">
+        <div class="box">
+            <img src="<%= users[i].image  %>" class="col-sm-12 col-md-12 col-lg-6 img">
+            <div class=" col-sm-12 col-md-12 col-lg-6 description"><%= users[i].description  %>
+                <div class="buto">
+                   <a href="/home?id=<%= users[i]._id %>" class="button-blog">Show </a>
+                    <a href="/update?id=<%= users[i]._id %>"class="button-blog">Update  </a>
+                    <a href="/delete/<%= users[i]._id %>"class="button-blog">Delete </a>
+                    </div>
+        </div>
+
+    </div>
+
+</div>
+    <!-- <div class="row">
+        <div class="buto-2"></div>
+    <a href="" class=" col-7 col-lg-4 button-blog2">Aurthor Name :  <%= users[i].author  %></a>
+     <a href=""class="col-7 col-lg-4  button-blog2">Category :  <%= users[i].category  %> </a>
+     <a href=""class="col-7 col-lg-3  button-blog2">Date Added : <%= users[i].date  %> </a></div> -->
+    </div>
+</div>
+</div>
+
+</div>
+
+</section>
+<%}%>
+
+
+<%- include("./partials/footer.ejs")%>
