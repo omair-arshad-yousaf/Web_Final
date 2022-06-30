@@ -28,36 +28,25 @@ const BlogDB=require("./model/blog.js")
 app.use(express.urlencoded({extended:false}));
 
 app.get("/home",(req,res)=>{
-    if(req.query.id){
-        const id = req.query.id;
-        BlogDB.findById(id).then(users=>{
-            if(!users){
-                res.render("errors/error1")
-            }
-            else{
-                res.render("show",{users})
-            }
-        }).catch(err=>{
-            res.render("errors/error1")
-        })
-    }
-    else if(req.query.category){
-            const cat=req.query.category;
-            BlogDB.findOne({category: cat }).then(users=>{
-                if(!users){
-                    res.render("errors/error1")
-                 }
-                 else{
-                     res.render("show",{users});
-                 }   
-            })
-        }
+    if(req.query.category){
+        let cat={};
+            cat={category:req.query.category.split(',')};
+           BlogDB.find(cat).then(users=>{
+            if(!users){       
+                res.render("errors/error2");
+                      }
+                      else{  
+                      res.render("category",{users});
+                  }}).catch(err=>{
+                    res.render("errors/error2");
+                  })
+                }
     else{
     BlogDB.find().then(users=>{
         res.render("home",{users})
     })
     .catch(err=>{
-        res.render("errors/error1")
+        res.render("errors/error2")
 })}})
 
 app.get("/blogs",(req,res)=>{
@@ -65,16 +54,16 @@ app.get("/blogs",(req,res)=>{
         res.render("blogs",{users})
     })
     .catch(err=>{
-        res.render("errors/error1")
+        res.render("errors/error2")
 })
 })
 
 //create 
-app.get("/create",(req,res)=>{
+app.get("/home/create",(req,res)=>{
     res.render("create");
 })
 
-app.post("/create",(req,res)=>{
+app.post("/home",(req,res)=>{
     if(!req.body){
         res.status(400).render("errors/error2")
     }
@@ -96,7 +85,25 @@ app.post("/create",(req,res)=>{
     }
 })
 
-
+app.get("/home/:id",(req,res)=>{
+    console.log(req.params.id);
+     if(req.params.id){
+        const id = req.params.id;
+        BlogDB.findById(id).then(users=>{
+            if(!users){
+                res.render("errors/error2")
+            }
+            else{
+                res.render("show",{users})
+            }
+        }).catch(err=>{
+            res.render("errors/error2")
+        })
+    }
+    else{
+        res.render("errors/error2")
+    }
+})
 
 app.get("/update",(req,res)=>{
     if(req.query.id){
@@ -109,10 +116,10 @@ app.get("/update",(req,res)=>{
             res.render("update",{users})
     }   
 }).catch(err=>{
-    res.render("errors/error1");
+    res.render("errors/error2");
 })
 }else{
-    res.render("errors/error1");
+    res.render("errors/error2");
 
 }})
 
@@ -127,11 +134,11 @@ app.post("/update/:id",(req,res)=>{
     const id = req.params.id;
     BlogDB.findByIdAndUpdate(id,req.body,{useFindAndModify:false}).then(users=>{
         if(!req.body){
-            res.render("errors/error1");
+            res.render("errors/error2");
         }
        res.redirect("/home");
     }).catch(err=>{
-        res.render("errors/error1");
+        res.render("errors/error2");
     })
    }
 })
@@ -142,13 +149,13 @@ app.get("/delete/:id",(req,res)=>{
     const id = req.params.id;
     BlogDB.findByIdAndDelete(id).then(user=>{
         if(!user){
-           res.render("errors/error1")
+           res.render("errors/error2")
         }
         else{
             res.redirect("/home");
         }    
     }).catch(err=>{
-        res.render("errors/error1")
+        res.render("errors/error2")
     })
 })
 
@@ -166,6 +173,10 @@ app.get("/delete/:id",(req,res)=>{
 //         })
 //     }
 // })
+
+app.get("/categ",(req,res)=>{
+    res.render("categ_page");
+})
 
 
 

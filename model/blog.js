@@ -3,10 +3,12 @@ const mongoose= require("mongoose");
 const schema= new mongoose.Schema({
     author:{
         type:String,
+        initialcap:true,
         required:true
     },
     title:{
         type:String,
+        initialcap:true,
         required:true
     },
     description:{
@@ -25,6 +27,7 @@ const schema= new mongoose.Schema({
     },
     category:{
         type:String,
+        uppercase:true,
         required:true
     }
 })
