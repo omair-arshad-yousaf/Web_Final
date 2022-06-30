@@ -14,7 +14,7 @@
             <img src="<%= users[i].image  %>" class="col-sm-12 col-md-12 col-lg-6 img">
             <div class=" col-sm-12 col-md-12 col-lg-6 description"><%= users[i].description  %>
                 <div class="buto">
-                   <a href="/home?id=<%= users[i]._id %>" class="button-blog">Show </a>
+                   <a href="/home/<%= users[i]._id %>" class="button-blog">Show </a>
                     <a href="/update?id=<%= users[i]._id %>"class="button-blog">Update  </a>
                     <a href="/delete/<%= users[i]._id %>"class="button-blog">Delete </a>
                     </div>

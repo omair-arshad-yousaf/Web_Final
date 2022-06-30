@@ -131,8 +131,8 @@ app.post("/update/:id",(req,res)=>{
     res.render("errors/error1")
    }
    else{
-    const id = req.params.id;
-    BlogDB.findByIdAndUpdate(id,req.body,{useFindAndModify:false}).then(users=>{
+    const users = req.params.id;
+    BlogDB.findByIdAndUpdate(users,req.body,{useFindAndModify:false}).then(users=>{
         if(!req.body){
             res.render("errors/error2");
         }
