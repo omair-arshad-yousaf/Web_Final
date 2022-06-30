@@ -3,6 +3,9 @@
 <%- include("./partials/header.ejs")%>
 <%- include("./partials/navbar.ejs")%>
 <div class="random"> </div>
+<div class="col-4 col-sm-4 col-md-3 col-lg-2">
+<div class="total-blogs"> Total Blogs : <%= users.length  %> </div></div>
+
 <% for(var i=0;i<users.length;i++){%>
     <div class="categ">Category : <%= users[i].category %> </div>
     <section class="container">

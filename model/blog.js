@@ -13,8 +13,8 @@ const schema= new mongoose.Schema({
     },
     description:{
         type:String,
-        minLength:100,
-        maxLength:300,
+        minLength:50,
+        maxLength:500,
         required:true
     },
     image:{

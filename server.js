@@ -160,20 +160,6 @@ app.get("/delete/:id",(req,res)=>{
 })
 
 
-// app.post("/category",(req,res)=>{
-//     if(req.query.category){
-//         const cat=req.body.category
-//         BlogDB.findOne({category:cat}).then(users=>{
-//             if(!user){
-//                 res.render("errors/error1")
-//              }
-//              else{
-//                  res.redirect("/home",{users});
-//              }   
-//         })
-//     }
-// })
-
 app.get("/categ",(req,res)=>{
     res.render("categ_page");
 })
