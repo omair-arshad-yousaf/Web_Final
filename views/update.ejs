@@ -1,18 +1,6 @@
 <%- include("./partials/header.ejs")%>
 <%- include("./partials/navbar.ejs")%>
-    <!-- <div style = "margin-top: 10%;"> -->
-        <!-- <script type="text/javascript">
-            function validateForm() {
-              var a = document.forms["Form"]["title"].value;
-              var b = document.forms["Form"]["author"].value;
-              var c = document.forms["Form"]["description"].value;
-              var d = document.forms["Form"]["image"].value;
-              if (a == null || a == "", b == null || b == "", c == null || c == "", d == null || d == "") {
-                alert("Please Fill All Required Field");
-                return false;
-              }
-            }
-          </script> -->
+
         <div class="form-title" >Update Blog : </div>
         <div class="container form1">
     <form action="/update/<%= users._id%>" name="form"method="post">
