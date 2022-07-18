@@ -29,9 +29,7 @@ app.use(express.urlencoded({extended:false}));
 
 app.get("/home",(req,res)=>{
     if(req.query.category){
-        let cat={};
-            cat={category:req.query.category.split(',')};
-           BlogDB.find(cat).then(users=>{
+           BlogDB.find({category:req.query.category}).then(users=>{
             if(!users){       
                 res.render("errors/error2");
                       }
